@@ -8,6 +8,7 @@
     >
       <v-list dense>
         <v-list-item
+          router :to="item.to"
           v-for="item in items"
           :key="item.text"
           link
@@ -96,11 +97,11 @@ export default {
         drawer:null,
         darkMode: false,
         items: [
-            { icon: 'mdi-account', text: 'Users' },
-            { icon: 'mdi-account', text: 'Subscriptions' },
-            { icon: 'mdi-account', text: 'History' },
-            { icon: 'mdi-account', text: 'Playlists' },
-            { icon: 'mdi-account', text: 'Watch Later' },
+            { icon: 'mdi-account', text: 'Students', to:'/users' },
+            { icon: 'mdi-account', text: 'Subscriptions', to:'/roles' },
+            { icon: 'mdi-account', text: 'History', to:'/classes' },
+            { icon: 'mdi-account', text: 'Playlists', to:'/courses' },
+            { icon: 'mdi-account', text: 'Watch Later', to:'/media' },
         ],
         items2: [
             { picture: 28, text: 'Joseph' },
