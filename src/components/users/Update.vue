@@ -6,29 +6,30 @@
             <v-card-title>
                 Update User
             </v-card-title>
-            <v-card-text>
+            
                 
                 <apollo-mutation :mutation="require('./../../graphql/users/update.gql')" :variables="{userId: user.userId, patchUserInfo}" @done="patchUser">
                     <template v-slot="{ mutate, loading, error }">
-                        <v-text-field 
-                                class="mt-5" 
-                                prepend-inner-icon="mdi-account" 
-                                label="username" 
-                                color="success"
-                                outlined 
-                                value="water"
-                                clearable
-                                v-model="patchUserInfo.username"
-                        ></v-text-field>
-                        <v-btn @click="mutate()">UPDATE</v-btn>
+                        <v-card-text>
+                            <v-text-field 
+                                    class="mt-5" 
+                                    prepend-inner-icon="mdi-account" 
+                                    label="username" 
+                                    color="success"
+                                    outlined 
+                                    value="water"
+                                    clearable
+                                    v-model="patchUserInfo.username"
+                            ></v-text-field>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-btn @click="mutate()" text>UPDATE</v-btn>
+                            <v-btn color="primary" text @click="dialog = false">Close</v-btn>
+                        </v-card-actions>
                     </template>
                 </apollo-mutation>
-            </v-card-text>
-            <v-card-actions>
-                <v-btn color="primary" text @click="dialog = false">
-                    Close
-                </v-btn>
-            </v-card-actions>
+            
+            
             </v-card>
         </v-dialog>
     </div>

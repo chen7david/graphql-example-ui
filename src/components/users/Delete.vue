@@ -15,9 +15,7 @@
                         <v-btn @click="mutate()" text class="red--text" >DELETE</v-btn>
                     </template>
                 </apollo-mutation>
-                <v-btn color="primary" text @click="dialog = false">
-                    Close
-                </v-btn>
+                <v-btn color="primary" text @click="dialog = false">Close</v-btn>
             </v-card-actions>
             </v-card>
         </v-dialog>
