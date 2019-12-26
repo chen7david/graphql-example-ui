@@ -1,0 +1,3 @@
+mutation patchUser($userId: String!, $patchUserInfo: patchUserInfo!){
+  patchUser(userId: $userId, patchUserInfo: $patchUserInfo)
+}
