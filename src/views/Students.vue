@@ -1,6 +1,7 @@
 <template>
     <v-container>
-        <apollo-query :query="require('./../graphql/users/index.gql')">
+        <RegisterUser/>
+        <apollo-query :deep="true" :query="require('./../graphql/users/index.gql')">
             <template v-slot="{ result: {loading, error, data}}">
                 <div v-if="loading">loading ...</div>
                 <v-list three-one v-else-if="data" v-for="user in data.users" :key="user.userId">
@@ -13,10 +14,10 @@
                             <v-list-item-subtitle>{{user.userId}}</v-list-item-subtitle>
                         </v-list-item-content>
                         <v-list-item-action>
-                            <v-btn fab text><v-icon>mdi-pencil</v-icon></v-btn>
+                            <UpdateUser :user="user"/>
                         </v-list-item-action>
                         <v-list-item-action>
-                            <v-btn fab text><v-icon>mdi-delete</v-icon></v-btn>
+                            <DeleteUser :user="user"/>
                         </v-list-item-action>
                     </v-list-item>
                 </v-list>
@@ -28,11 +29,15 @@
 
 
 <script>
-
+import RegisterUser from './../components/users/Register'
+import UpdateUser from './../components/users/Update'
+import DeleteUser from './../components/users/Delete'
 export default {
     name:'Students',
     components: {
-
+        RegisterUser,
+        UpdateUser,
+        DeleteUser
     }
 }
 </script>
